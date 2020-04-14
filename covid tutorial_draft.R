@@ -55,13 +55,13 @@ library(ggplot2)
 # World confirmed
 ggplot(world, aes(x=date, y=confirmed)) + geom_bar(stat="identity", width=0.1) +
   theme_classic() +
-  labs(title = "Covid-19 Global Confirmed Cases", x= "Date", y= "Daily confirmed cased") +
+  labs(title = "Covid-19 Global Confirmed Cases", x= "Date", y= "Daily confirmed cases") +
   theme(plot.title = element_text(hjust = 0.5))
 
-# France confirmed
+# Italy confirmed
 ggplot(italy, aes(x=date, y=confirmed)) + geom_bar(stat="identity", width=0.1) +
   theme_classic() +
-  labs(title = "Covid-19 Confirmed Cases in Italy", x= "Date", y= "Daily confirmed cased") +
+  labs(title = "Covid-19 Confirmed Cases in Italy", x= "Date", y= "Daily confirmed cases") +
   theme(plot.title = element_text(hjust = 0.5))
 
 # World confirmed, deaths and recovered
@@ -69,7 +69,7 @@ str(world)
 world %>% gather("Type", "Cases", -c(date, cumconfirmed, days)) %>% 
 ggplot(aes(x=date, y=Cases, colour=Type)) + geom_bar(stat="identity", width=0.2, fill="white") +
   theme_classic() +
-  labs(title = "Covid-19 Global New Confirmed Cases", x= "Date", y= "Daily confirmed cased") +
+  labs(title = "Covid-19 Global Cases", x= "Date", y= "Daily cases") +
   theme(plot.title = element_text(hjust = 0.5))
   
 
@@ -79,14 +79,14 @@ ggplot(aes(x=date, y=Cases, colour=Type)) + geom_bar(stat="identity", width=0.2,
 # World confirmed
 ggplot(world, aes(x=days, y=confirmed)) + geom_line() +
   theme_classic() +
-  labs(title = "Covid-19 Global Confirmed Cases", x= "Days", y= "Daily confirmed cased") +
+  labs(title = "Covid-19 Global Confirmed Cases", x= "Days", y= "Daily confirmed cases") +
   theme(plot.title = element_text(hjust = 0.5))
 # Ignore warning
 
 # World confirmed: show log10 scale instead
 ggplot(world, aes(x=days, y=confirmed)) + geom_line() +
   theme_classic() +
-  labs(title = "Covid-19 Global Confirmed Cases", x= "Days", y= "Daily confirmed cased  (log scale)") +
+  labs(title = "Covid-19 Global Confirmed Cases", x= "Days", y= "Daily confirmed cases  (log scale)") +
   theme(plot.title = element_text(hjust = 0.5)) +
   scale_y_continuous(trans="log10")
 
@@ -95,7 +95,7 @@ str(world)
 world %>% gather("Type", "Cases", -c(date, cumconfirmed, days)) %>% 
 ggplot(aes(x=days, y=Cases, colour=Type)) + geom_line() +
   theme_classic() +
-  labs(title = "Covid-19 Global Confirmed Cases", x= "Days", y= "Daily confirmed cased  (log scale)") +
+  labs(title = "Covid-19 Global Cases", x= "Days", y= "Daily cases  (log scale)") +
   theme(plot.title = element_text(hjust = 0.5)) +
   scale_y_continuous(trans="log10")
 
@@ -104,7 +104,7 @@ ggplot(aes(x=days, y=Cases, colour=Type)) + geom_line() +
 countryselection <- country %>% filter(Country.Region==c("US", "Italy", "China", "France", "United Kingdom", "Germany"))
 ggplot(countryselection, aes(x=days, y=confirmed, colour=Country.Region)) + geom_line(size=1) +
   theme_classic() +
-  labs(title = "Covid-19 Confirmed Cases by Country", x= "Days", y= "Daily confirmed cases  (log scale)") +
+  labs(title = "Covid-19 Confirmed Cases by Country", x= "Days", y= "Daily confirmed cases (log scale)") +
   theme(plot.title = element_text(hjust = 0.5)) +
   scale_y_continuous(trans="log10")
 
